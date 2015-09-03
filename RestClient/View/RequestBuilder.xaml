@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="RestClient.View.RequestBuilder"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RestClient.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="23" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="5" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="75" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="80" />
+            </Grid.ColumnDefinitions>
+            <ComboBox ItemsSource="{Binding HttpVerbs}" SelectedItem="{Binding SelectedHttpVerb}" Grid.Column="0" />
+            <TextBox Text="{Binding RequestUrl}" Grid.Column="1" />
+            <Button Content="Send" Grid.Column="2" Margin="2,0,2,0" Command="{Binding SendRequestCmd}" />
+        </Grid>
+        <local:RequestParamView Grid.Row="1" />
+        <GridSplitter Grid.Row="2" Height="5" HorizontalAlignment="Stretch" />
+        <local:ResponseView Grid.Row="3" />
+    </Grid>
+</UserControl>

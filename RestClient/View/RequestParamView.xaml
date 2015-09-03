@@ -1,0 +1,37 @@
+﻿<UserControl x:Class="RestClient.View.RequestParamView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <TabControl>
+            <TabItem Header="Authorizaion" ></TabItem>
+            <TabItem Header="Headers"></TabItem>
+            <TabItem Header="Body">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="160" />
+                        <ColumnDefinition Width="50" />
+                        <ColumnDefinition Width="60" />
+                        <ColumnDefinition Width="200" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="23" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <RadioButton Content="form-data" Grid.Column="0" Grid.Row="0" />
+                    <RadioButton Content="x-www-form-urlencoded" Grid.Column="1" Grid.Row="0" />
+                    <RadioButton Content="raw" Grid.Column="2" Grid.Row="0" />
+                    <RadioButton Content="binary" Grid.Column="3" Grid.Row="0" />
+                    <ComboBox ItemsSource="{Binding RawTypes}" SelectedItem="{Binding SelectedRawType}" Grid.Column="4" Grid.Row="0" />
+                    <TextBox Grid.ColumnSpan="6" Text="{Binding PostData}" TextWrapping="Wrap" AcceptsReturn="True" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Pre-request script"></TabItem>
+        </TabControl>
+    </Grid>
+</UserControl>
